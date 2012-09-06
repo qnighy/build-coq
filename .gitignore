@@ -1,0 +1,29 @@
+
+camlp5-*
+contrib-*
+coq-*
+findlib-*
+lablgtk-*
+logs
+ocaml-*
+ssreflect-*
+
+*.tgz
+*.tar.gz
+*.exe
+*.zip
+
+installer.nsi
+
+
+############
+## Windows
+############
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+

@@ -1,0 +1,6 @@
+i686-pc-mingw32-gcc
+m4
+flexdll
+unzip
+tar
+
