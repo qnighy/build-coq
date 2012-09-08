@@ -27,6 +27,7 @@
  install -m 775 ${GTK_ROOT}/bin/libgtk-win32-2.0-0.dll            ${COQ_ROOT}/bin
  install -m 775 ${GTK_ROOT}/bin/libatk-1.0-0.dll                  ${COQ_ROOT}/bin
  install -m 775 ${GTK_ROOT}/bin/zlib1.dll                         ${COQ_ROOT}/bin
+ install -m 775 ${GTK_ROOT}/bin/libgcc_s_dw2-1.dll                ${COQ_ROOT}/bin
  install -m 775 ${GTK_ROOT}/share/themes/MS-Windows/gtk-2.0/gtkrc ${COQ_ROOT}/share/themes/MS-Windows/gtk-2.0
  touch ${COQ_ROOT}/etc/gtk-2.0/gtkrc
  echo 'gtk-theme-name = "MS-Windows"' >> ${COQ_ROOT}/etc/gtk-2.0/gtkrc

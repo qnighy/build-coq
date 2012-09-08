@@ -2,7 +2,7 @@
 
 . ./config.sh
 
-export PATH=${OCAML_ROOT}/bin:$PATH
+export PATH=`cygpath -u ${OCAML_ROOT}/bin`:$PATH
 export PATH=${GTK_ROOT}/bin:$PATH
 # export CYGWIN=nobinmode
 
@@ -13,6 +13,6 @@ cd lablgtk-${LABLGTK_VERSION}
 make -j${PARALLEL_BUILD} && \
 make -j${PARALLEL_BUILD} opt && \
 make install
-cp -r ${OCAML_ROOT}/lib/site-lib/lablgtk2 ${OCAML_ROOT}/lib
+# cp -r ${OCAML_ROOT}/lib/site-lib/lablgtk2 ${OCAML_ROOT}/lib
 cd ..
 

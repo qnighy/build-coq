@@ -2,7 +2,7 @@
 
 . ./config.sh
 
-export PATH=${OCAML_ROOT}/bin:$PATH
+export PATH=`cygpath -u ${OCAML_ROOT}/bin`:$PATH
 
 tar xf camlp5-${CAMLP5_VERSION}.tgz
 cd camlp5-${CAMLP5_VERSION}

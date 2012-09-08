@@ -149,6 +149,7 @@ RequestExecutionLevel highest
 !include "FileAssociation.nsh"
 
 Var FileAssociationCheckbox
+Var FileAssociationCheckboxState
 Var StartMenuFolder
 
 Name "Coq Unofficial Build"
@@ -179,7 +180,7 @@ $file->print(<<'EOD');
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\Coq-Unofficial"
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
 !insertmacro MUI_PAGE_STARTMENU Application $StartMenuFolder
-Page custom PageAskingFileAssociation
+Page custom PageAskingFileAssociation PageAskingFileAssociationLeave
 
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
@@ -228,15 +229,15 @@ $file->print(<<'EOD');
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     ;Create shortcuts
     CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Coq Console.lnk" "$INSTDIR\bin\coqtop.exe"
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\CoqIDE.lnk" "$INSTDIR\bin\coqide.exe"
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Coq Console.lnk" "$INSTDIR\bin\coqtop.exe"
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
   !insertmacro MUI_STARTMENU_WRITE_END
 
-  ${NSD_GetState} $FileAssociationCheckbox $0
-  ${If} $0 <> 0
+  ${If} $FileAssociationCheckboxState <> 0
     ${registerExtension} "$INSTDIR\bin\coqide.exe" ".v" "Coq vernacular file"
   ${EndIf}
+
 SectionEnd
 LangString DESC_Section_core ${LANG_ENGLISH}  "Core Coq Component"
 
@@ -392,6 +393,10 @@ Function PageAskingFileAssociation
   ${NSD_CreateCheckbox} 80u 50u 100% 10u "Associate *.v files to CoqIDE"
   Pop $FileAssociationCheckbox
   nsDialogs::Show
+FunctionEnd
+
+Function PageAskingFileAssociationLeave
+  ${NSD_GetState} $FileAssociationCheckbox $FileAssociationCheckboxState
 FunctionEnd
 
 EOD
