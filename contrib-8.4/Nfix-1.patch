@@ -1,0 +1,18 @@
+diff -ru Nfix/Make Nfix.new/Make
+--- Nfix/Make	2012-01-05 07:38:30.000000000 +0900
++++ Nfix.new/Make	2012-09-12 17:32:38.413545900 +0900
+@@ -7,7 +7,10 @@
+ NFIX_PLUGINOPT = "src/nfix_plugin.cmxs"
+ COQDOC = "$(COQBIN)coqdoc -interpolate -utf8"
+ CAMLP4OPTIONS = "-loc loc"
+-src/nfix.ml
+-src/nfix_plugin_mod.ml
++src/nfix.ml4
++src/nfix_plugin_mod.ml4
+ theories/Nfix.v
+-tests/TestNfix.v
+\ ファイル末尾に改行がありません
++tests/TestNfix.v
++-custom "cp $< $@" "src/nfix.ml" src/nfix.ml4
++-custom "cp $< $@" "src/nfix_plugin_mod.ml" src/nfix_plugin_mod.ml4
++

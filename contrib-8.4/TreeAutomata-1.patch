@@ -1,0 +1,10 @@
+diff -ru TreeAutomata/Make TreeAutomata.new/Make
+--- TreeAutomata/Make	2012-01-05 07:38:34.000000000 +0900
++++ TreeAutomata.new/Make	2012-09-14 17:08:33.749496000 +0900
+@@ -1,5 +1,5 @@
+ -R . TreeAutomata
+--R ../../Cachan/IntMap IntMap
++-R ../IntMap IntMap
+ auto.v 
+ bases.v 
+ coacc_test.v 

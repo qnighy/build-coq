@@ -1,0 +1,30 @@
+diff -ru CanonBDDs/Make CanonBDDs.new/Make
+--- CanonBDDs/Make	2012-01-05 07:38:39.000000000 +0900
++++ CanonBDDs.new/Make	2012-09-10 16:26:00.058252500 +0900
+@@ -15,12 +15,12 @@
+ rauzy/algorithme1/Boolean_functions.v
+ rauzy/algorithme1/BDTs.v
+ -custom "$(COQBIN)coqtop $(COQFLAGS) -silent -batch -load-vernac-source rauzy/algorithme1/extract.v" rauzy/algorithme1/Formula_to_BDT.vo rauzy/algorithme1/suresnes.ml
+-rauzy/algorithme1/extraction
+ -custom
+        "@echo '***** test: checking the tautology ztwaalf1_be *****'
++	make -C rauzy/algorithme1/extraction
+ 	./rauzy/algorithme1/extraction/suresnes rauzy/algorithme1/extraction/ztwaalf1_be
+ 	@echo '******************** End of test ***********************'"
+-  "" test
++  "rauzy/algorithme1/suresnes.ml" test
+ rauzy/algorithmes_2_et_3/Primes.v
+ rauzy/algorithmes_2_et_3/Prelude_Primes.v
+ rauzy/algorithmes_2_et_3/Prelude_Paths.v
+diff -ru CanonBDDs/rauzy/algorithme1/extraction/Makefile CanonBDDs.new/rauzy/algorithme1/extraction/Makefile
+--- CanonBDDs/rauzy/algorithme1/extraction/Makefile	2012-01-05 07:38:39.000000000 +0900
++++ CanonBDDs.new/rauzy/algorithme1/extraction/Makefile	2012-09-10 16:24:12.136548200 +0900
+@@ -13,7 +13,7 @@
+ 	parser.cmx \
+ 	main.cmx \
+  
+-PROG= suresnes
++PROG= suresnes.exe
+ 
+ 
+ all : 	$(PROG)

@@ -1,0 +1,25 @@
+diff -uN AACTactics/Make AACTactics.new/Make
+--- AACTactics/Make	1970-01-01 09:00:00.000000000 +0900
++++ AACTactics.new/Make	2012-09-10 10:10:07.669916300 +0900
+@@ -0,0 +1,21 @@
++-R . AAC_tactics
++coq.mli
++helper.mli
++search_monad.mli
++matcher.mli
++theory.mli
++print.mli
++rewrite.mli
++coq.ml
++helper.ml
++search_monad.ml
++matcher.ml
++theory.ml
++print.ml
++rewrite.ml4
++aac.mlpack
++AAC.v
++Instances.v
++Tutorial.v
++Caveats.v
++

@@ -1,0 +1,10 @@
+diff -ru FingerTree/Make FingerTree.new/Make
+--- FingerTree/Make	2012-01-05 07:38:29.000000000 +0900
++++ FingerTree.new/Make	2012-09-12 19:33:01.283734000 +0900
+@@ -17,5 +17,4 @@
+ DependentFingerTreeModule.v
+ FingerTreeModule.v
+ RopeModule.v
+--custom "cd extraction/ml/; rm -f *.ml *.mli *.cm* *.o; $(COQC) -q -opt -R ../.. FingerTree Extract.v" "extraction/ml/Extract.v" "extraction/ml/Extract.vo" 
+-extraction
++-custom "make -C extraction; cd extraction/ml/; rm -f *.ml *.mli *.cm* *.o; $(COQC) -q -opt -R ../.. FingerTree Extract.v" extraction/ml/Extract.v extraction/ml/Extract.vo 

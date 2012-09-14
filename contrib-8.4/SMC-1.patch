@@ -1,0 +1,10 @@
+diff -ru SMC/Make SMC.new/Make
+--- SMC/Make	2012-01-05 07:38:21.000000000 +0900
++++ SMC.new/Make	2012-09-14 15:00:57.626291800 +0900
+@@ -1,5 +1,5 @@
+ -R . SMC
+--R ../../Cachan/IntMap IntMap
++-R ../IntMap IntMap
+ alloc.v
+ bool_fun.v
+ config.v

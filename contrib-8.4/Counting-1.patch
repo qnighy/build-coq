@@ -1,0 +1,15 @@
+diff -ru Counting/Make Counting.new/Make
+--- Counting/Make	2012-01-05 07:38:28.000000000 +0900
++++ Counting.new/Make	2012-09-12 17:11:25.433898000 +0900
+@@ -7,7 +7,9 @@
+ COUNTING_PLUGINOPT = "src/counting_plugin.cmxs"
+ COQDOC = "$(COQBIN)coqdoc -interpolate -utf8"
+ CAMLP4OPTIONS = "-loc loc"
+-src/counting.ml
+-src/counting_plugin_mod.ml
++src/counting.ml4
++src/counting_plugin_mod.ml4
+ theories/Counting.v
+ tests/TestCounting.v
++-custom "cp $< $@" "src/counting.ml" src/counting.ml4
++-custom "cp $< $@" "src/counting_plugin_mod.ml" src/counting_plugin_mod.ml4

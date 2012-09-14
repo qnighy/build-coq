@@ -1,0 +1,25 @@
+diff -ru Ergo/Make Ergo.new/Make
+--- Ergo/Make	2012-01-05 07:38:30.000000000 +0900
++++ Ergo.new/Make	2012-09-12 17:50:50.436715300 +0900
+@@ -14,10 +14,10 @@
+ ERGO_PLUGINOPT = "src/ergo_plugin.cmxs"
+ COQDOC = "$(COQBIN)coqdoc -interpolate -utf8"
+ CAMLP4OPTIONS = "-loc loc"
+-src/arith.ml
+-src/ergo.ml
++src/arith.ml4
++src/ergo.ml4
+ src/ergo.mli
+-src/ergo_plugin_mod.ml
++src/ergo_plugin_mod.ml4
+ theories/Adequation.v
+ theories/AllInstances.v
+ theories/AltErgo.v
+@@ -61,3 +61,7 @@
+ tests/GeneratorsNG.v
+ tests/Generators.v
+ tests/TestErgo.v
++-custom "cp $< $@" "src/arith.ml" src/arith.ml4
++-custom "cp $< $@" "src/ergo.ml" src/ergo.ml4
++-custom "cp $< $@" "src/ergo_plugin_mod.ml" src/ergo_plugin_mod.ml4
++-custom "" "theories/CNFLazy.vo theories/CNFLazyN.vo theories/Env.vo theories/SatCaml.vo theories/Dpll.vo theories/TacticLazy.vo theories/CCX.vo theories/EnvLazy.vo" theories/AltErgo.vo

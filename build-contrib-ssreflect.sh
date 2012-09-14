@@ -18,8 +18,7 @@ ${COQBIN}coqtop -config | dos2unix | tr '\\\\' /
 EOD
 chmod a+x coqtop-config.sh
 
-${COQBIN}coq_makefile -f Make > Makefile.coq.orig && \
-sed -e 's/\r//g;s/$(COQBIN)coqtop -config/.\/coqtop-config.sh/g' < Makefile.coq.orig > Makefile.coq && \
+coq_makefile -f Make -o Makefile && cp Makefile Makefile.orig && \
+sed -e 's/\r//g;s/$(COQBIN)coqtop -config/.\/coqtop-config.sh/g;s/user-contrib/user-contrib-postload/g' < Makefile.orig > Makefile && rm Makefile.orig && \
 make -j${PARALLEL_BUILD} && \
 make install
-cd ..

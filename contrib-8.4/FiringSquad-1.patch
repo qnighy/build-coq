@@ -1,0 +1,16 @@
+diff -ru FiringSquad/Make FiringSquad.new/Make
+--- FiringSquad/Make	2012-01-05 07:38:11.000000000 +0900
++++ FiringSquad.new/Make	2012-09-12 19:51:49.101948700 +0900
+@@ -14,10 +14,10 @@
+ algo.v
+ # the test :
+ -custom "$(COQBIN)coqtop $(COQFLAGS) -silent -batch -load-vernac-source extract.v" algo.vo algo.ml
+--custom "rm *.mli *.cm* *.o; $(CAMLBIN)ocamlopt -o fire unix.cmxa graphics.cmxa Datatypes.ml Peano.ml Specif.ml Peano_dec.ml nmax.ml bib.ml autom.ml algo.ml fire.ml" "algo.ml fire.ml" fire
++-custom "rm *.mli *.cm* *.o; $(CAMLBIN)ocamlopt -o fire.exe unix.cmxa graphics.cmxa Datatypes.ml Peano.ml Specif.ml Peano_dec.ml nmax.ml bib.ml autom.ml algo.ml fire.ml" "algo.ml fire.ml" fire.exe
+ -custom
+         "@echo '****** test: firing squad with 10 members *****'
+ 	./fire 10
+ 	@echo '**************** End of test *****************'"
+-  fire test
++  fire.exe test
+ 

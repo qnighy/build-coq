@@ -1,0 +1,16 @@
+diff -ru FOUnify/Make FOUnify.new/Make
+--- FOUnify/Make	2012-01-05 07:38:39.000000000 +0900
++++ FOUnify.new/Make	2012-09-12 19:04:14.696985300 +0900
+@@ -5,10 +5,10 @@
+ listv_is_in_lv.v
+ is_in_quasiterm_term_subst.v
+ -custom "$(COQBIN)coqtop $(COQFLAGS) -silent -batch -load-vernac-source extract.v" term_unif.vo unif.ml
+--custom "$(CAMLOPTLINK) -pp '$(CAMLBIN)$(CAMLP4)o' -o unif unif.mli unif.ml main.ml" unif.ml unif
++-custom "$(CAMLOPTLINK) -pp '$(CAMLBIN)$(CAMLP4)o' -o unif.exe unif.mli unif.ml main.ml" unif.ml unif.exe
+ -custom
+         "@echo '******* test: unifying two terms *******'
+ 	./unif 'f(g(x),y)' 'f(y,g(h(t)))'
+ 	@echo '************** End of test ****************'"
+-unif test
++unif.exe test
+ 

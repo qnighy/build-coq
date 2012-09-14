@@ -1,0 +1,10 @@
+diff -ru Goedel/Make Goedel.new/Make
+--- Goedel/Make	2012-01-05 07:38:32.000000000 +0900
++++ Goedel.new/Make	2012-09-12 21:46:56.403564600 +0900
+@@ -1,5 +1,5 @@
+ -R . Goedel
+--R ../../Eindhoven/Pocklington Pocklington
++-R ../Pocklington Pocklington
+ checkPrf.v
+ chRem.v
+ codeFreeVar.v

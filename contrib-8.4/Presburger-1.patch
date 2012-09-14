@@ -1,0 +1,20 @@
+diff -ru Presburger/Make Presburger.new/Make
+--- Presburger/Make	2012-01-05 07:38:12.000000000 +0900
++++ Presburger.new/Make	2012-09-13 21:32:28.196645700 +0900
+@@ -8,12 +8,15 @@
+ Nat.v
+ Normal.v
+ Option.v
++PresTac.v
++PresTac_ex.v
+ Process.v
+ ReduceCong.v
+ ReduceEq.v
+ Sort.v
+ Zdivides.v
+-prestac.ml
++prestac.ml4
++-custom "cp $< $@" prestac.ml prestac.ml4
+ sTactic.v
+ -custom "$(COQC) $(COQLIBS) -q -byte PresTac.v" "prestac.cmo" PresTac.vo
+ -custom "$(COQC) $(COQLIBS) -q -byte PresTac_ex.v" "PresTac.vo" PresTac_ex.vo

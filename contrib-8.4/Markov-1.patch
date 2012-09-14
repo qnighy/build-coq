@@ -1,0 +1,6 @@
+diff -ruN Markov/Make Markov.new/Make
+--- Markov/Make	1970-01-01 09:00:00.000000000 +0900
++++ Markov.new/Make	2012-09-13 18:46:12.171851500 +0900
+@@ -0,0 +1,2 @@
++-R . Markov
++markov.v

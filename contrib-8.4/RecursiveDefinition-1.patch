@@ -1,0 +1,12 @@
+diff -ru RecursiveDefinition/Make RecursiveDefinition.new/Make
+--- RecursiveDefinition/Make	2012-01-05 07:38:11.000000000 +0900
++++ RecursiveDefinition.new/Make	2012-09-13 22:34:09.292625200 +0900
+@@ -1,6 +1,7 @@
+ -R . RecursiveDefinition
+ -byte
+-term_const.ml
++term_const.ml4
++-custom "cp $< $@" term_const.ml term_const.ml4
+ Term_const.v
+ data.v 
+ data1.v 

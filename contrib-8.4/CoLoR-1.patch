@@ -1,0 +1,93 @@
+diff -ru CoLoR/Make CoLoR.new/Make
+--- CoLoR/Make	2012-01-05 07:38:40.000000000 +0900
++++ CoLoR.new/Make	2012-09-10 23:43:02.092528000 +0900
+@@ -1,16 +1,21 @@
+ -R . CoLoR
+ ./DP/ADPGraph.v
++./DP/ADPUnif.v
+ ./DP/AGraph.v
+-./DP/SCCunion.v
+-./DP/HDE.v
++./DP/ASCCunion.v
++./DP/AHDE.v
+ ./DP/ADP.v
++./DP/ADecomp.v
++./DP/Subterm.v
+ ./MannaNess/AMannaNess.v
+ ./Conversion/VTerm_of_ATerm.v
+ ./Conversion/ATerm_of_String.v
+ ./HORPO/Computability.v
+ ./HORPO/Horpo.v
+ ./HORPO/HorpoWf.v
+-./HORPO/HorpoBetaComp.v
++./HORPO/HorpoComp.v
++./HORPO/HorpoExMap.v
++./HORPO/HorpoExNonTrans.v
+ ./MPO/VMpo.v
+ ./MatrixInt/AMatrixBasedInt.v
+ ./MatrixInt/AArcticBasedInt.v
+@@ -51,8 +56,10 @@
+ ./Term/WithArity/ACap.v
+ ./Term/WithArity/AVariables.v
+ ./Term/WithArity/ARename.v
++./Term/WithArity/ARenCap.v
+ ./Term/WithArity/ATerm.v
+ ./Term/WithArity/ATrs.v
++./Term/WithArity/ATrsNorm.v
+ ./Term/WithArity/AContext.v
+ ./Term/WithArity/ANotvar.v
+ ./Term/WithArity/AUnif.v
+@@ -65,7 +72,7 @@
+ ./PolyInt/APolyInt_MA.v
+ ./Filter/AFilter.v
+ ./Util/Nat/NatUtil.v
+-./Util/Nat/log2.v
++./Util/Nat/Log2.v
+ ./Util/Nat/BoundNat.v
+ ./Util/Algebra/SemiRing.v
+ ./Util/Algebra/OrdSemiRing.v
+@@ -76,8 +83,8 @@
+ ./Util/Multiset/MultisetCore.v
+ ./Util/Multiset/MultisetOrder.v
+ ./Util/Multiset/MultisetListOrder.v
+-./Util/Multiset/MultisetAuxiliary.v
+ ./Util/Multiset/MultisetList.v
++./Util/Multiset/MultisetNat.v
+ ./Util/Multiset/MultisetTheory.v
+ ./Util/Polynom/Polynom.v
+ ./Util/Polynom/PositivePolynom.v
+@@ -87,7 +94,6 @@
+ ./Util/Logic/LogicUtil.v
+ ./Util/Logic/ClassicUtil.v
+ ./Util/Logic/DepChoicePrf.v
+-./Util/Logic/LogicDecide.v
+ ./Util/Relation/Union.v
+ ./Util/Relation/SCC.v
+ ./Util/Relation/RelMidex.v
+@@ -108,6 +114,7 @@
+ ./Util/Relation/RedLength.v
+ ./Util/Relation/IS_NotSN.v
+ ./Util/Relation/NotSN.v
++./Util/Relation/OrdDec.v
+ ./Util/Relation/RelDec.v
+ ./Util/Relation/RelSub.v
+ ./Util/Relation/SCCTopoOrdering.v
+@@ -123,8 +130,9 @@
+ ./Util/List/ListMax.v
+ ./Util/List/ListRepeatFree.v
+ ./Util/List/ListShrink.v
++./Util/List/ListSort.v
+ ./Util/List/ListForall.v
+-./Util/List/ListExt.v
++./Util/List/ListDec.v
+ ./Util/List/ListPermutation.v
+ ./Util/List/ListOccur.v
+ ./Util/List/LexicographicOrder.v
+@@ -133,7 +141,6 @@
+ ./Util/List/ListExtras.v
+ ./RPO/VMPO.v
+ ./RPO/VLPO.v
+-./RPO/Signature.v
+ ./RPO/VPrecedence.v
+ ./RPO/VRPO_Prover.v
+ ./RPO/VRPO_Type.v

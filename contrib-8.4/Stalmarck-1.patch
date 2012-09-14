@@ -1,0 +1,62 @@
+diff -ru Stalmarck/Make Stalmarck.new/Make
+--- Stalmarck/Make	2012-01-05 07:38:12.000000000 +0900
++++ Stalmarck.new/Make	2012-09-14 16:07:00.614027300 +0900
+@@ -6,8 +6,8 @@
+ OrderedListEq.v 
+ OrderedListEq_ex.v 
+ PolyListAux.v 
+-#StalTac.v 
+-#StalTac_ex.v 
++StalTac.v 
++StalTac_ex.v 
+ addArray.v 
+ algoDilemma1.v 
+ algoDotriplet.v 
+@@ -39,13 +39,12 @@
+ triplet.v 
+ unionState.v 
+ wfArray.v 
+-staltac.ml
+--custom "$(COQC) $(COQLIBS) -q -byte StalTac.v" "" StalTac.vo
+--custom "$(COQC) $(COQLIBS) -vm -q -byte StalTac_ex.v" "" StalTac_ex.vo
+-extraction
++staltac.ml4
++-custom "cp $< $@" staltac.ml staltac.ml4
+ -custom
+-       "@echo '***** test: checking the tautology ztwaalf1_be *****'
++       "make -C extraction
++	@echo '***** test: checking the tautology ztwaalf1_be *****'
+ 	extraction/stalmarck 1 extraction/ztwaalf1_be
+ 	@echo '******************** End of test ***********************'"
+-  extraction test
++  "Extract.vo" test
+ 
+Only in Stalmarck: Makefile
+Only in Stalmarck.new: Makefile.bak
+Only in Stalmarck.new: coqtop-config.sh
+diff -ru Stalmarck/extraction/Makefile Stalmarck.new/extraction/Makefile
+--- Stalmarck/extraction/Makefile	2012-01-05 07:38:12.000000000 +0900
++++ Stalmarck.new/extraction/Makefile	2012-09-14 15:52:38.752084800 +0900
+@@ -16,10 +16,10 @@
+ PROG= stalmarck
+ 
+ 
+-all : 	$(PROG)
++all : 	$(PROG).exe
+ 
+-$(PROG) :  $(OBJ_I) $(OBJ)	
+-	$(CC) $(FLAGS) -o $(PROG) $(LIB) $(OBJ) 
++$(PROG).exe :  $(OBJ_I) $(OBJ)	
++	$(CC) $(FLAGS) -o $(PROG).exe $(LIB) $(OBJ) 
+ 
+ stal.ml : 
+ 	cp ../run.ml stal.ml
+@@ -39,7 +39,7 @@
+ 
+ clean : 	
+ 	rm -f *.o *.cmx *.cmi \
+-	$(PROG) \
++	$(PROG).exe \
+ 	stal.ml \
+ 	lexer.ml \
+ 	parser.ml \

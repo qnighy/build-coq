@@ -8,6 +8,15 @@ export CC=i686-w64-mingw32-gcc
 
 tar xf coq-${COQ_VERSION}.tar.gz
 cd coq-${COQ_VERSION}
+
+for i in `echo ../coq-${COQ_VERSION}-*.patch | sort`
+do
+  if [ -f $i ]
+  then
+    patch -p1 < $i
+  fi
+done
+
 cp Makefile.build Makefile.build.tmp
 ./configure -prefix ${COQ_ROOT} -libdir ${COQ_ROOT}/lib -opt -coqide opt -with-doc no -with-geoproof no \
   -arch win32 -camldir ${OCAML_ROOT}/bin -usecamlp5 && \
@@ -16,7 +25,6 @@ make install
 
 rm -r ${COQ_ROOT}/emacs
 rm -r ${COQ_ROOT}/latex
-rm -r ${COQ_ROOT}/man
 
 rm ${COQ_ROOT}/bin/coqide.exe
 rm ${COQ_ROOT}/bin/coqtop.exe

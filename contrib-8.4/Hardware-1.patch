@@ -1,0 +1,18 @@
+diff -ru Hardware/Make Hardware.new/Make
+--- Hardware/Make	2012-01-05 07:38:45.000000000 +0900
++++ Hardware.new/Make	2012-09-13 15:09:15.424434500 +0900
+@@ -32,11 +32,12 @@
+ ./Factorization/Comparator/Comp_Verif.v
+ ./Factorization/Comparator/Comp_Prog.v
+ -custom "$(COQBIN)coqtop $(COQFLAGS) -silent -batch -load-vernac-source Factorization/Comparator/extract.v" Factorization/Comparator/Comp_Synth.vo Factorization/Comparator/comp.ml
+--custom "$(CAMLBIN)ocamlopt -I Factorization/Comparator -o Factorization/Comparator/comp Factorization/Comparator/comp.ml Factorization/Comparator/comp.mli Factorization/Comparator/main.ml" "Factorization/Comparator/comp.ml Factorization/Comparator/comp.cmi" Factorization/Comparator/comp
++-custom "$(CAMLBIN)ocamlopt -I Factorization/Comparator -o Factorization/Comparator/comp.exe Factorization/Comparator/comp.ml Factorization/Comparator/comp.mli Factorization/Comparator/main.ml" "Factorization/Comparator/comp.ml Factorization/Comparator/comp.cmi" Factorization/Comparator/comp.exe
+ -custom "$(CAMLBIN)ocamlc Factorization/Comparator/comp.mli" Factorization/Comparator/comp.mli Factorization/Comparator/comp.cmi
++-custom "" Factorization/Comparator/comp.ml Factorization/Comparator/comp.mli
+ -custom
+         "@echo '******* test: comparing two numbers *******'
+ 	./Factorization/Comparator/comp 12365876 646848674
+ 	@echo '************** End of test ****************'"
+-Factorization/Comparator/comp test
++Factorization/Comparator/comp.exe test
+ 

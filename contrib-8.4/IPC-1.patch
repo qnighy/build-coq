@@ -1,0 +1,9 @@
+diff -ru IPC/Make IPC.new/Make
+--- IPC/Make	2012-01-05 07:38:33.000000000 +0900
++++ IPC.new/Make	2012-09-13 16:45:14.892794100 +0900
+@@ -34,4 +34,4 @@
+ Sound.v
+ Trees.v
+ Weight.v
+--custom "$(CAMLBIN)ocamlopt -o benchmark search.mli search.ml test_formulae.ml benchmark.ml" "Extr.vo test_formulae.ml benchmark.ml" benchmark
++-custom "$(CAMLBIN)ocamlopt -o benchmark.exe search.mli search.ml test_formulae.ml benchmark.ml" "Extr.vo test_formulae.ml benchmark.ml" benchmark.exe

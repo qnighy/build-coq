@@ -1,0 +1,13 @@
+diff -ru DescenteInfinie/Make DescenteInfinie.new/Make
+--- DescenteInfinie/Make	2012-01-05 07:38:22.000000000 +0900
++++ DescenteInfinie.new/Make	2012-09-12 17:05:42.434842700 +0900
+@@ -6,5 +6,7 @@
+ DI_PLUGINOPT = "src/di_plugin.cmxs"
+ COQDOC = "$(COQBIN)coqdoc -interpolate -utf8"
+ CAMLP4OPTIONS = "-loc loc"
+-src/di.ml
+-src/di_plugin_mod.ml
++src/di.ml4
++src/di_plugin_mod.ml4
++-custom "cp $< $@" "src/di.ml" src/di.ml4
++-custom "cp $< $@" "src/di_plugin_mod.ml" src/di_plugin_mod.ml4

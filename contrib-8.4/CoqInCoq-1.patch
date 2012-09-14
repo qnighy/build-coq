@@ -1,0 +1,16 @@
+diff -ru CoqInCoq/Make CoqInCoq.new/Make
+--- CoqInCoq/Make	2012-01-05 07:38:37.000000000 +0900
++++ CoqInCoq.new/Make	2012-09-12 16:45:23.604570900 +0900
+@@ -31,10 +31,10 @@
+ COQE = "$(COQBIN)coqtop $(COQLIBS) $(COQFLAGS) -batch -load-vernac-source"
+ -custom "$(COQE) Extract.v" Machine.vo core.ml
+ # building coc
+--custom "$(CAMLOPTLINK) -o $@ core.cmx top.cmx" "core.cmx top.cmx" coc
++-custom "$(CAMLOPTLINK) -o $@ core.cmx top.cmx" "core.cmx top.cmx" coc.exe
+ # the test :
+ -custom
+        "@echo '***** test: checking the proof of the Newman lemma *****'
+ 	./coc < newman.coc
+ 	@echo '******************** End of test ***********************'"
+-  "" test
++  "coc.exe" test

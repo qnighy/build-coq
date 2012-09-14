@@ -1,0 +1,34 @@
+diff -ru Semantics/Make Semantics.new/Make
+--- Semantics/Make	2012-01-05 07:38:12.000000000 +0900
++++ Semantics.new/Make	2012-09-14 15:40:19.297686000 +0900
+@@ -16,12 +16,15 @@
+ syntax.v
+ interp.ml
+ str_little.ml
++interp.mli
++-custom "" extract_interpret.vo "interp.ml interp.mli"
++-custom "" "interp.cmi" str_little.ml
+ -custom "$(CAMLBIN)ocamlc -rectypes -c llex.ml" "llex.ml parse_little.cmi" llex.cmo
+ -custom "$(CAMLBIN)ocamlc -rectypes -c parse_little.ml" "parse_little.cmi parse_little.ml interp.cmi str_little.cmo" parse_little.cmo
+ -custom 
+-	"$(CAMLBIN)ocamlc -rectypes -o little interp.cmo nums.cma str_little.cmo parse_little.cmo llex.cmo little.ml"
++	"$(CAMLBIN)ocamlc -rectypes -o little.exe interp.cmo nums.cma str_little.cmo parse_little.cmo llex.cmo little.ml"
+ 	"str_little.cmo interp.cmi interp.cmo parse_little.cmo llex.cmo little.ml" 
+-	little
++	little.exe
+ -custom 
+ 	"$(CAMLBIN)ocamlyacc parse_little.mly"
+ 	"parse_little.mly"
+@@ -29,10 +32,10 @@
+ -custom "$(CAMLBIN)ocamllex llex.mll" llex.mll llex.ml
+ -custom 
+ 	"./little -vcg-coq < sqrt.lil | cat context_sqrt.v - tail_sqrt.v > proof_sqrt.v"	
+-	"context_sqrt.v tail_sqrt.v sqrt.lil little"
++	"context_sqrt.v tail_sqrt.v sqrt.lil little.exe"
+ 	proof_sqrt.v
+ -custom "./little -static-analysis < ex_int.lil > test_vcg.lil"
+-	"ex_int.lil little"
++	"ex_int.lil little.exe"
+ 	test_vcg.lil
+ 
+ 

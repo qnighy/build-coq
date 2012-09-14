@@ -1,0 +1,11 @@
+diff -ru Multiplier/Make Multiplier.new/Make
+--- Multiplier/Make	2012-01-05 07:38:10.000000000 +0900
++++ Multiplier.new/Make	2012-09-13 20:14:48.468435400 +0900
+@@ -8,5 +8,6 @@
+ 	"@echo '********* Test on one example **********'
+ 	$(CAMLBIN)ocaml test.ml
+ 	@echo '************ End of test ***************'"
+-  "" test
++  "circmult.ml" test
++-custom "" Multiplier.vo circmult.ml
+ 

@@ -1,0 +1,60 @@
+diff -u Additions/binary_strat.v Additions.new/binary_strat.v
+--- Additions/binary_strat.v	2012-01-05 07:38:42.000000000 +0900
++++ Additions.new/binary_strat.v	2012-09-10 09:20:35.624014400 +0900
+@@ -36,7 +36,7 @@
+ Require Import Arith.
+ Require Import euclid.
+ Require Import shift.
+-Require Import Euclid.
++Require Import Arith.Euclid.
+ Require Import Le_lt_compl.
+ Require Import Mult_compl.
+ Require Import Constants.
+diff -u Additions/dicho_strat.v Additions.new/dicho_strat.v
+--- Additions/dicho_strat.v	2012-01-05 07:38:42.000000000 +0900
++++ Additions.new/dicho_strat.v	2012-09-10 09:20:43.205977100 +0900
+@@ -96,7 +96,7 @@
+ Require Import shift.
+ Require Import two_power.
+ Require Import log2_spec.
+-Require Import Euclid.
++Require Import Arith.Euclid.
+ Require Import Le_lt_compl.
+ Require Import Mult_compl.
+ Require Import Constants.
+diff -u Additions/generation.v Additions.new/generation.v
+--- Additions/generation.v	2012-01-05 07:38:42.000000000 +0900
++++ Additions.new/generation.v	2012-09-10 09:20:51.719558200 +0900
+@@ -37,7 +37,7 @@
+ Require Import spec.
+ Require Import Constants.
+ Require Import machine.
+-Require Import Euclid.
++Require Import Arith.Euclid.
+ Require Import Le_lt_compl.
+ Require Import euclid.
+ Require Import shift.
+diff -u Additions/log2_implementation.v Additions.new/log2_implementation.v
+--- Additions/log2_implementation.v	2012-01-05 07:38:42.000000000 +0900
++++ Additions.new/log2_implementation.v	2012-09-10 09:20:58.156375600 +0900
+@@ -45,7 +45,7 @@
+ Require Import Wf_nat. 
+ Require Import euclid.
+ Require Import Le_lt_compl.
+-Require Import Euclid.
++Require Import Arith.Euclid.
+ Require Import shift.
+ Require Import Compare_dec.
+ Require Import imperative.
+diff -u Additions/shift.v Additions.new/shift.v
+--- Additions/shift.v	2012-01-05 07:38:42.000000000 +0900
++++ Additions.new/shift.v	2012-09-10 09:21:03.567562700 +0900
+@@ -38,7 +38,7 @@
+ Require Import Wf_nat. 
+ Require Import euclid.
+ Require Import Le_lt_compl.
+-Require Import Euclid.
++Require Import Arith.Euclid.
+ Require Import Compare_dec.
+ 
+ Lemma plus_n_1 : forall n : nat, S n = n + 1.

@@ -1,0 +1,10 @@
+diff -ru LinAlg/Make LinAlg.new/Make
+--- LinAlg/Make	2012-01-05 07:38:27.000000000 +0900
++++ LinAlg.new/Make	2012-09-13 17:53:26.346842700 +0900
+@@ -1,5 +1,5 @@
+ -R . LinAlg
+--R ../../Sophia-Antipolis/Algebra/ Algebra
++-R ../Algebra/ Algebra
+ 
+ first_page.v
+ 

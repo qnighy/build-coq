@@ -1,0 +1,23 @@
+diff -ru JProver/Make JProver.new/Make
+--- JProver/Make	2012-01-05 07:38:29.000000000 +0900
++++ JProver.new/Make	2012-09-13 17:10:51.017857200 +0900
+@@ -1,9 +1,16 @@
+ -R . JProver
+ JProver.v
+ opname.ml
++opname.mli
+ jtunify.ml
++jtunify.mli
+ jterm.ml
++jterm.mli
+ jlogic.ml
++jlogic.mli
+ jall.ml
+-jprover.ml
+--byte
+\ ファイル末尾に改行がありません
++jall.mli
++jprover.ml4
++jprover.mli
++-byte
++-custom "cp $< $@" jprover.ml jprover.ml4

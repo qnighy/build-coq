@@ -1,0 +1,15 @@
+diff -ru Chinese/Make Chinese.new/Make
+--- Chinese/Make	2012-01-05 07:38:36.000000000 +0900
++++ Chinese.new/Make	2012-09-10 16:49:01.098122300 +0900
+@@ -14,9 +14,9 @@
+ Nat_complements.v
+ Lci.v
+ -custom "$(COQBIN)coqtop $(COQLIBS) $(COQFLAGS) -silent -batch -load-vernac-source extract.v" Zgcd.vo chinese.ml
+--custom "$(CAMLBIN)ocamlopt -o chinese chinese.mli chinese.ml main.ml" chinese.ml chinese
++-custom "$(CAMLBIN)ocamlopt -o chinese.exe chinese.mli chinese.ml main.ml" chinese.ml chinese.exe
+ -custom   
+        "@echo '***** test: computing the chinese remaindering of an example  *****'
+ 	./chinese 9 16 3 7
+ 	@echo '*********************** End of test *******************************'"
+-  "" test 
++  "chinese.exe" test 

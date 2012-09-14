@@ -1,0 +1,104 @@
+diff -ru MathClasses/implementations/cons_list.v MathClasses.new/implementations/cons_list.v
+--- MathClasses/implementations/cons_list.v	2012-01-05 07:38:27.000000000 +0900
++++ MathClasses.new/implementations/cons_list.v	2012-09-13 18:53:36.717301600 +0900
+@@ -1,5 +1,5 @@
+ Require Import
+- Morphisms List Program
++ Morphisms Coq.Lists.List Program
+  abstract_algebra interfaces.monads.
+ 
+ Implicit Arguments app [[A]].
+diff -ru MathClasses/implementations/list.v MathClasses.new/implementations/list.v
+--- MathClasses/implementations/list.v	2012-01-05 07:38:27.000000000 +0900
++++ MathClasses.new/implementations/list.v	2012-09-13 18:53:51.874226300 +0900
+@@ -1,5 +1,5 @@
+ Require Import
+-  List SetoidList abstract_algebra interfaces.monads.
++  Coq.Lists.List SetoidList abstract_algebra interfaces.monads.
+ 
+ Notation "( x ::)" := (cons x) (only parsing).
+ Notation "(:: l )" := (λ x, cons x l) (only parsing).
+diff -ru MathClasses/implementations/list_finite_set.v MathClasses.new/implementations/list_finite_set.v
+--- MathClasses/implementations/list_finite_set.v	2012-01-05 07:38:27.000000000 +0900
++++ MathClasses.new/implementations/list_finite_set.v	2012-09-13 18:54:00.122273600 +0900
+@@ -1,5 +1,5 @@
+ Require Import
+-  List SetoidList
++  Coq.Lists.List SetoidList
+   abstract_algebra interfaces.finite_sets interfaces.orders
+   theory.lattices orders.lattices.
+ 
+diff -ru MathClasses/implementations/polynomials.v MathClasses.new/implementations/polynomials.v
+--- MathClasses/implementations/polynomials.v	2012-01-05 07:38:27.000000000 +0900
++++ MathClasses.new/implementations/polynomials.v	2012-09-13 18:54:28.983438500 +0900
+@@ -1,5 +1,5 @@
+ Require Import
+-  List
++  Coq.Lists.List
+   abstract_algebra.
+ 
+ Section contents.
+diff -ru MathClasses/interfaces/sequences.v MathClasses.new/interfaces/sequences.v
+--- MathClasses/interfaces/sequences.v	2012-01-05 07:38:27.000000000 +0900
++++ MathClasses.new/interfaces/sequences.v	2012-09-13 18:54:38.254115700 +0900
+@@ -1,5 +1,5 @@
+ Require Import
+-  List abstract_algebra theory.categories forget_algebra forget_variety
++  Coq.Lists.List abstract_algebra theory.categories forget_algebra forget_variety
+   theory.rings interfaces.universal_algebra interfaces.functors
+   categories.setoids categories.varieties.
+ Require
+diff -ru MathClasses/interfaces/ua_basic.v MathClasses.new/interfaces/ua_basic.v
+--- MathClasses/interfaces/ua_basic.v	2012-01-05 07:38:27.000000000 +0900
++++ MathClasses.new/interfaces/ua_basic.v	2012-09-13 18:54:46.895713100 +0900
+@@ -1,7 +1,7 @@
+ Require
+   ne_list.
+ Require Import
+-  List abstract_algebra.
++  Coq.Lists.List abstract_algebra.
+ 
+ Local Notation ne_list := ne_list.L.
+ 
+diff -ru MathClasses/interfaces/universal_algebra.v MathClasses.new/interfaces/universal_algebra.v
+--- MathClasses/interfaces/universal_algebra.v	2012-01-05 07:38:27.000000000 +0900
++++ MathClasses.new/interfaces/universal_algebra.v	2012-09-13 18:54:54.564186900 +0900
+@@ -1,7 +1,7 @@
+ Require
+   theory.setoids ne_list.
+ Require Import
+-  List
++  Coq.Lists.List
+   abstract_algebra util jections.
+ Require Export
+   ua_basic.
+diff -ru MathClasses/theory/ua_congruence.v MathClasses.new/theory/ua_congruence.v
+--- MathClasses/theory/ua_congruence.v	2012-05-17 09:00:17.000000000 +0900
++++ MathClasses.new/theory/ua_congruence.v	2012-09-13 18:55:02.819735200 +0900
+@@ -1,5 +1,5 @@
+ Require Import
+-  Morphisms RelationClasses Relation_Definitions List
++  Morphisms RelationClasses Relation_Definitions Coq.Lists.List
+   universal_algebra ua_homomorphisms canonical_names ua_subalgebraT util.
+ Require ua_products.
+ 
+diff -ru MathClasses/varieties/closed_terms.v MathClasses.new/varieties/closed_terms.v
+--- MathClasses/varieties/closed_terms.v	2012-01-05 07:38:27.000000000 +0900
++++ MathClasses.new/varieties/closed_terms.v	2012-09-13 18:55:15.254314200 +0900
+@@ -1,5 +1,5 @@
+ Require Import
+-  RelationClasses Relation_Definitions List Morphisms
++  RelationClasses Relation_Definitions Coq.Lists.List Morphisms
+   universal_algebra ua_homomorphisms
+   abstract_algebra canonical_names
+   theory.categories categories.varieties.
+diff -ru MathClasses/varieties/open_terms.v MathClasses.new/varieties/open_terms.v
+--- MathClasses/varieties/open_terms.v	2012-01-05 07:38:27.000000000 +0900
++++ MathClasses.new/varieties/open_terms.v	2012-09-13 18:55:22.072179900 +0900
+@@ -1,5 +1,5 @@
+ Require Import
+-  RelationClasses Relation_Definitions List Morphisms
++  RelationClasses Relation_Definitions Coq.Lists.List Morphisms
+   universal_algebra abstract_algebra canonical_names
+   theory.categories categories.varieties.
+ 

@@ -1,0 +1,18 @@
+diff -ru HigmanNW/Make HigmanNW.new/Make
+--- HigmanNW/Make	2012-01-05 07:38:36.000000000 +0900
++++ HigmanNW.new/Make	2012-09-13 15:45:24.425362600 +0900
+@@ -2,10 +2,12 @@
+ -impredicative-set
+ Higman.v
+ -custom "$(COQBIN)coqtop $(COQLIBS) $(COQFLAGS) -silent -batch -load-vernac-source Extract.v" Higman.vo higman.ml
+--custom "$(CAMLOPTLINK) -o higman higman.mli higman.ml main.ml" higman.ml higman
++-custom "$(CAMLOPTLINK) -o higman.exe higman.mli higman.ml main.ml" higman.ml higman.exe
++-custom "" Higman.vo higman.mli
++-custom "" Higman.vo higman.ml
+ -custom   
+        "@echo '***** test: running Higman proof on one example *****'
+ 	./higman 101 0110 01010
+ 	@echo '****************** End of test **********************'"
+-  "" test 
++  "higman.exe" test 
+ 

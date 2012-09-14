@@ -1,0 +1,18 @@
+diff -ru HigmanCF/Make HigmanCF.new/Make
+--- HigmanCF/Make	2012-01-05 07:38:33.000000000 +0900
++++ HigmanCF.new/Make	2012-09-13 15:43:23.390993200 +0900
+@@ -1,10 +1,12 @@
+ -R . HigmanCF
+ Higman.v
+ Higman2.v 
+--custom "$(CAMLBIN)ocamlopt -o higman higman2.mli higman2.ml main.ml" "Higman2.vo higman2.ml higman2.mli main.ml" higman
++-custom "$(CAMLBIN)ocamlopt -o higman.exe higman2.mli higman2.ml main.ml" "Higman2.vo higman2.ml higman2.mli main.ml" higman.exe
++-custom "" Higman2.vo higman2.ml
++-custom "" Higman2.vo higman2.mli
+ -custom   
+ 	"@echo '***** test: running Higman proof on one example *****'
+ 	./higman 101 0110 01010
+ 	@echo '****************** End of test **********************'"
+-  "" test 
++  "higman.exe" test 
+ 

@@ -1,0 +1,20 @@
+diff -ru Graphs/Make Graphs.new/Make
+--- Graphs/Make	2012-01-05 07:38:33.000000000 +0900
++++ Graphs.new/Make	2012-09-12 22:12:39.957071000 +0900
+@@ -1,13 +1,13 @@
+ -R . Graphs
+--R ../../Cachan/IntMap IntMap
++-R ../IntMap IntMap
+ cgraph.v 
+ zcgraph.v 
+ -custom "$(COQBIN)coqtop $(COQLIBS) $(COQFLAGS) -silent -batch -load-vernac-source extract.v" zcgraph.vo checker.ml
+--custom "$(CAMLOPTLINK) -o checker unix.cmxa checker.mli checker.ml $(PP) main.ml" checker.ml checker
++-custom "$(CAMLOPTLINK) -o checker.exe unix.cmxa checker.mli checker.ml $(PP) main.ml" checker.ml checker.exe
+ -custom
+         "@echo '****** test: checking transitivity *******'
+ 	echo 'x<y -> y<z -> x<z' |  ./checker
+ 	@echo '************** End of test ****************'"
+-checker test
++checker.exe test
+ 
+ 

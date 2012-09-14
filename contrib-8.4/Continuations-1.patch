@@ -1,0 +1,17 @@
+diff -ru Continuations/Make Continuations.new/Make
+--- Continuations/Make	2012-01-05 07:38:19.000000000 +0900
++++ Continuations.new/Make	2012-09-12 17:08:27.855848500 +0900
+@@ -1,7 +1,7 @@
+ -R . Continuations
+ -impredicative-set
+ -byte
+-./cps/applytac.ml
++./cps/applytac.ml4
+ ./cps/cps_Nmx.v
+ ./cps/cps_N.v
+ ./cps/cps_Nx.v
+@@ -24,3 +24,4 @@
+ ./FOUnify_cps/deb_term_unif.v
+ ./FOUnify_cps/end_term_unif.v
+ ./FOUnify_cps/nat_complements.v
++-custom "cp $< $@" "./cps/applytac.ml" ./cps/applytac.ml4

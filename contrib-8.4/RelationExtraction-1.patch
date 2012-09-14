@@ -1,0 +1,55 @@
+diff -ru RelationExtraction/Make RelationExtraction.new/Make
+--- RelationExtraction/Make	2012-01-05 07:38:22.000000000 +0900
++++ RelationExtraction.new/Make	2012-09-14 13:35:59.337891400 +0900
+@@ -2,7 +2,7 @@
+ -custom "
+ #the following is inserted verbatim
+ 
+-all: $(RELEXTR_PLUGIN).cma $(RELEXTR_PLUGIN).cmxs
++all: $(RELEXTR_PLUGIN).cma $(RELEXTR_PLUGIN).cmxs test
+ 
+ clean: clean-plugin
+ 
+@@ -10,6 +10,7 @@
+ 	rm -f $(RELEXTR_PLUGIN).a
+ 
+ test: $(RELEXTR_PLUGIN).cma $(RELEXTR_PLUGIN).cmxs
++	make -C test
+ 
+ #end verbatim
+ " "" ""
+@@ -28,4 +29,3 @@
+ relation_extraction.ml
+ g_relation_extraction.ml4
+ relation_extraction_plugin.mllib
+-test
+diff -ru RelationExtraction/test/Makefile RelationExtraction.new/test/Makefile
+--- RelationExtraction/test/Makefile	2012-01-05 07:38:22.000000000 +0900
++++ RelationExtraction.new/test/Makefile	2012-09-14 13:38:13.126380400 +0900
+@@ -15,7 +15,7 @@
+ 
+ all: $(ML_TESTS) test
+ 
+-%.ml: %.v $(COQC)
++%.ml: %.v
+ 	$(COQC) $< >$@
+ 
+ %.cmo: %.ml
+@@ -24,14 +24,14 @@
+ tester.cmo: tester.ml $(ML_TESTS_OBJ)
+ 	$(OCAMLC) -c $<
+ 
+-tester: $(ML_TESTS_OBJ) tester.cmo
++tester.exe: $(ML_TESTS_OBJ) tester.cmo
+ 	$(OCAMLC) -o $@ $^
+ 
+ .PHONY: clean test
+ 
+-test: tester
++test: tester.exe
+ 	./tester
+ 
+ clean:
+-	rm -f $(ML_TESTS) *.cmo *.cmi *.vo *.glob tester
++	rm -f $(ML_TESTS) *.cmo *.cmi *.vo *.glob tester.exe
+ 

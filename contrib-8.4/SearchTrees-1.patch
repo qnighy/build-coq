@@ -1,0 +1,15 @@
+diff -ru SearchTrees/Make SearchTrees.new/Make
+--- SearchTrees/Make	2012-01-05 07:38:41.000000000 +0900
++++ SearchTrees.new/Make	2012-09-14 15:08:59.507983000 +0900
+@@ -8,9 +8,10 @@
+ extraction.v
+ nat_trees.v
+ search_trees.v
++-custom "" extraction.vo searchtrees.ml
+ -custom
+ 	"@echo '********* Test on one example **********'
+ 	$(CAMLBIN)ocaml test.ml
+ 	@echo '************ End of test ***************'"
+-  "" test
++  "searchtrees.ml" test
+ 
