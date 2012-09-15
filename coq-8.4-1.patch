@@ -1,0 +1,63 @@
+diff -ru coq-8.4/checker/checker.ml coq-8.4.new/checker/checker.ml
+--- coq-8.4/checker/checker.ml	2012-08-09 03:54:37.000000000 +0900
++++ coq-8.4.new/checker/checker.ml	2012-09-12 12:25:08.658724600 +0900
+@@ -102,11 +102,15 @@
+ let init_load_path () =
+   let coqlib = Envars.coqlib () in
+   let user_contrib = coqlib/"user-contrib" in
++  let user_contrib_postload = coqlib/"user-contrib-postload" in
+   let xdg_dirs = Envars.xdg_dirs in
+   let coqpath = Envars.coqpath in
+   let plugins = coqlib/"plugins" in
+   (* NOTE: These directories are searched from last to first *)
+-  (* first standard library *)
++  (* first user-contrib-postload *)
++  if Sys.file_exists user_contrib_postload then
++    add_rec_path ~unix_path:user_contrib_postload ~coq_root:Check.default_root_prefix;
++  (* then standard library *)
+   add_rec_path ~unix_path:(coqlib/"theories") ~coq_root:(Names.make_dirpath[coq_root]);
+   (* then plugins *)
+   add_rec_path ~unix_path:plugins ~coq_root:(Names.make_dirpath [coq_root]);
+diff -ru coq-8.4/Makefile.build coq-8.4.new/Makefile.build
+--- coq-8.4/Makefile.build	2012-08-11 06:53:21.000000000 +0900
++++ coq-8.4.new/Makefile.build	2012-09-12 12:25:08.661725000 +0900
+@@ -633,6 +633,7 @@
+ 	$(MKDIR) $(FULLCOQLIB)/states
+ 	$(INSTALLLIB) states/*.coq $(FULLCOQLIB)/states
+ 	$(MKDIR) $(FULLCOQLIB)/user-contrib
++	$(MKDIR) $(FULLCOQLIB)/user-contrib-postload
+ 	$(INSTALLLIB) $(DLLCOQRUN) $(FULLCOQLIB)
+ 	$(INSTALLSH)  $(FULLCOQLIB) $(CONFIG) $(LINKCMO) $(GRAMMARCMA)
+ 	$(INSTALLSH)  $(FULLCOQLIB) $(INSTALLCMI)
+diff -ru coq-8.4/tools/coqdep.ml coq-8.4.new/tools/coqdep.ml
+--- coq-8.4/tools/coqdep.ml	2012-08-09 03:54:37.000000000 +0900
++++ coq-8.4.new/tools/coqdep.ml	2012-09-12 12:33:31.754109600 +0900
+@@ -196,6 +196,8 @@
+     add_rec_dir add_known "plugins" ["Coq"]
+   end else begin
+     let coqlib = Envars.coqlib () in
++    let user_postload = coqlib//"user-contrib-postload" in
++    if Sys.file_exists user_postload then add_rec_dir add_coqlib_known user_postload [];
+     add_rec_dir add_coqlib_known (coqlib//"theories") ["Coq"];
+     add_rec_dir add_coqlib_known (coqlib//"plugins") ["Coq"];
+     let user = coqlib//"user-contrib" in
+diff -ru coq-8.4/toplevel/coqinit.ml coq-8.4.new/toplevel/coqinit.ml
+--- coq-8.4/toplevel/coqinit.ml	2012-08-09 03:54:37.000000000 +0900
++++ coq-8.4.new/toplevel/coqinit.ml	2012-09-12 12:25:08.667725700 +0900
+@@ -94,11 +94,15 @@
+ let init_load_path () =
+   let coqlib = Envars.coqlib () in
+   let user_contrib = coqlib/"user-contrib" in
++  let user_contrib_postload = coqlib/"user-contrib-postload" in
+   let xdg_dirs = Envars.xdg_dirs in
+   let coqpath = Envars.coqpath in
+   let dirs = ["states";"plugins"] in
+     (* NOTE: These directories are searched from last to first *)
+-    (* first, developer specific directory to open *)
++    (* first, user-contrib-postload *)
++    if Sys.file_exists user_contrib_postload then
++      Mltop.add_rec_path ~unix_path:user_contrib_postload ~coq_root:Nameops.default_root_prefix;
++    (* then developer specific directory to open *)
+     if Coq_config.local then coq_add_path (coqlib/"dev") "dev";
+     (* then standard library *)
+     List.iter

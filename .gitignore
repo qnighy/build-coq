@@ -1,29 +1,26 @@
 
-camlp5-*
-contrib-*
-coq-*
-findlib-*
-lablgtk-*
-logs
-ocaml-*
-ssreflect-*
+/camlp5-*/
+/contrib-*/*/
+/contrib-*/*.tar.gz
+/coq-*/
+/findlib-*/
+/lablgtk-*/
+/logs/
+/ocaml-*/
+/ssreflect-*/
 
-*.tgz
-*.tar.gz
-*.exe
-*.zip
+/camlp5-*.tgz
+/coq-*.tar.gz
+/coq-unofficial-*-win32.exe
+/findlib-*.tar.gz
+/gtk+-bundle_*.zip
+/installer.nsi
+/lablgtk-*.tar.gz
+/ocaml-*.tar.bz2
+/ssreflect-*.tar.gz
+/logo.ico
 
-installer.nsi
-
-
-############
-## Windows
-############
-
-# Windows image file caches
 Thumbs.db
-
-# Folder config file
 Desktop.ini
-
+.DS_Store
 
